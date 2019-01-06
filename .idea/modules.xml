@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SensingKitLib-debug/SensingKitLib-debug.iml" filepath="$PROJECT_DIR$/SensingKitLib-debug/SensingKitLib-debug.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SensingKitLib-release/SensingKitLib-release.iml" filepath="$PROJECT_DIR$/SensingKitLib-release/SensingKitLib-release.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TestSnsing.iml" filepath="$PROJECT_DIR$/TestSnsing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+    </modules>
+  </component>
+</project>
