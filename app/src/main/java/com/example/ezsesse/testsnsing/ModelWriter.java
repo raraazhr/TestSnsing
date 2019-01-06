@@ -6,7 +6,6 @@ import org.sensingkit.sensingkitlib.SKException;
 import org.sensingkit.sensingkitlib.SKExceptionErrorCode;
 import org.sensingkit.sensingkitlib.SKSensorDataListener;
 import org.sensingkit.sensingkitlib.SKSensorModuleType;
-import org.sensingkit.sensingkitlib.data.SKAccelerometerData;
 import org.sensingkit.sensingkitlib.data.SKSensorData;
 
 import java.io.BufferedOutputStream;
@@ -28,7 +27,6 @@ public class ModelWriter implements SKSensorDataListener {
 
     private File mFile;
     private BufferedOutputStream mFileBuffer;
-    String dataLine;
 
     public ModelWriter(SKSensorModuleType moduleType, File sessionFolder, String filename) throws SKException {
 
@@ -83,18 +81,12 @@ public class ModelWriter implements SKSensorDataListener {
         return file;
     }
     @Override
-    public void onDataReceived(SKSensorModuleType moduleType, SKSensorData moduleData) {
+    public void onDataReceived(SKSensorModuleType skSensorModuleType, SKSensorData skSensorData) {
         if (mFileBuffer != null) {
-//            if (moduleType==SKSensorModuleType.ACCELEROMETER){
-//                SKAccelerometerData data = (SKAccelerometerData) moduleData;
-//                dataLine = String.valueOf(data.getX());
-//            }
-//            else {
-//
-//            }
-            // Build the data line
 
-            dataLine = moduleData.getDataInCSV() + "\n";
+            // Build the data line
+            String dataLine = skSensorData.getDataInCSV() + "\n";
+
             // Write in the FileBuffer
             try {
                 mFileBuffer.write(dataLine.getBytes());
