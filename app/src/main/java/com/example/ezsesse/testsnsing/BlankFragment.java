@@ -1,7 +1,6 @@
 package com.example.ezsesse.testsnsing;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -19,7 +18,7 @@ import java.util.ArrayList;
  * Use the {@link BlankFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BlankFragment extends Fragment {
+public class BlankFragment extends android.support.v4.app.Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String xData = "param1";
@@ -54,8 +53,12 @@ public class BlankFragment extends Fragment {
 ////        return fragment;
 //    }
 
-    public static Fragment newInstance(ArrayList<accelerometer> accelerometers){
-        BlankFragment.accelerometers =accelerometers;
+//    public static Fragment newInstance(ArrayList<accelerometer> accelerometers){
+//        BlankFragment.accelerometers =accelerometers;
+//        return new BlankFragment();
+//    }
+
+    public static BlankFragment newInstance(){
         return new BlankFragment();
     }
 

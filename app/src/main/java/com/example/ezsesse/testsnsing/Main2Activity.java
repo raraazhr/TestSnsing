@@ -1,10 +1,13 @@
 package com.example.ezsesse.testsnsing;
 
 import android.Manifest;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.PowerManager;
+import android.support.annotation.FloatRange;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,11 +28,18 @@ public class Main2Activity extends AppCompatActivity {
     Button mPauseButton;
     SensingSession mSensingSession;
     private PowerManager.WakeLock mWakeLock;
+    private Fragment fragment =null;
+    private Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        mContext =this;
+//        fragment = BlankFragment.newInstance();
+//        android.support.v4.app.FragmentTransaction transaction = this.getSupportFragmentManager().beginTransaction();
+//        transaction.commit();
+//        transaction.replace(R.id.frame_layout_adm,fragment,"");
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -62,6 +72,7 @@ public class Main2Activity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+                mStatus.setText("Sensing...");
                 createSensingSession();
                 startSensing();
             }
@@ -71,6 +82,7 @@ public class Main2Activity extends AppCompatActivity {
         mPauseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mStatus.setText("Sensing Stop");
                 stopSensing();
             }
         });
