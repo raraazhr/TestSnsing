@@ -14,6 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+
 /**
  * Created by ezsesse on 1/6/2019.
  */
@@ -83,10 +84,8 @@ public class ModelWriter implements SKSensorDataListener {
     @Override
     public void onDataReceived(SKSensorModuleType skSensorModuleType, SKSensorData skSensorData) {
         if (mFileBuffer != null) {
-
             // Build the data line
             String dataLine = skSensorData.getDataInCSV() + "\n";
-
             // Write in the FileBuffer
             try {
                 mFileBuffer.write(dataLine.getBytes());

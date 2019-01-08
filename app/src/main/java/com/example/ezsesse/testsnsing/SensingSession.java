@@ -9,6 +9,8 @@ import org.sensingkit.sensingkitlib.SKExceptionErrorCode;
 import org.sensingkit.sensingkitlib.SKSensorModuleType;
 import org.sensingkit.sensingkitlib.SensingKitLib;
 import org.sensingkit.sensingkitlib.SensingKitLibInterface;
+import org.sensingkit.sensingkitlib.data.SKAccelerometerData;
+import org.sensingkit.sensingkitlib.data.SKSensorData;
 
 import java.io.File;
 import java.io.IOException;
@@ -76,9 +78,7 @@ public class SensingSession {
     }
 
     public void start() throws SKException {
-
         this.isSensing = true;
-
         // Start
 //        mSensingKitLib.startContinuousSensingWithSensor(SKSensorModuleType.AUDIO_LEVEL);
         mSensingKitLib.startContinuousSensingWithSensor(SKSensorModuleType.ACCELEROMETER);
@@ -92,7 +92,6 @@ public class SensingSession {
     public void stop() throws SKException {
 
         this.isSensing = false;
-
         // Stop
 //        mSensingKitLib.stopContinuousSensingWithSensor(SKSensorModuleType.AUDIO_LEVEL);
         mSensingKitLib.stopContinuousSensingWithSensor(SKSensorModuleType.ACCELEROMETER);
@@ -168,6 +167,14 @@ public class SensingSession {
         }
 
         return folder;
+    }
+
+    public SKAccelerometerData getDataAccel() throws SKException {
+        return (SKAccelerometerData)mSensingKitLib.getDataFromSensor(SKSensorModuleType.ACCELEROMETER);
+    }
+
+    public SKAccelerometerData getDataGyro() throws SKException {
+        return (SKAccelerometerData)mSensingKitLib.getDataFromSensor(SKSensorModuleType.GYROSCOPE);
     }
 
 }
