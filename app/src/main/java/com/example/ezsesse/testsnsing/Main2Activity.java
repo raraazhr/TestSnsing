@@ -157,6 +157,11 @@ public class Main2Activity extends AppCompatActivity implements SKSensorDataList
             yGyr.setText("no sensor found");
             zGyr.setText("no sensor found");
         }
+        if (!mSensingKitLib.isSensorModuleSensing(SKSensorModuleType.ACCELEROMETER)){
+            xAcc.setText("no sensor found");
+            yAcc.setText("no sensor found");
+            zAcc.setText("no sensor found");
+        }
 //
 //        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH.mm.ss", Locale.UK);
 //        String folderName = dateFormat.format(new Date());
@@ -174,7 +179,7 @@ public class Main2Activity extends AppCompatActivity implements SKSensorDataList
     }
 
     public void startSensing() throws SKException {
-        acquireWakeLock();
+        //acquireWakeLock();
         mSensingKitLib.startContinuousSensingWithSensor(SKSensorModuleType.ACCELEROMETER);
         mSensingKitLib.startContinuousSensingWithSensor(SKSensorModuleType.GYROSCOPE);
 //        if (mSensingSession != null) {
